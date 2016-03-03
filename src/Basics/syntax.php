@@ -22,7 +22,7 @@
     $b = 10;
     $sum = $a + $b;
     $mul = $a * $b;
-    $mull = $a ** $b;
+    //$mull = $a ** $b;
     $div = $a / $b;
     $diff = $a - $b;
 
@@ -214,11 +214,32 @@ WOOOOT;
     const DUDES = 20;
     echo DUDES.PHP_EOL;
 
-    const NAMES = ["foo", "bar"];
-    const COMPOSIBLE = "COMPOSIBLE". NAMES[0];
-    echo COMPOSIBLE . PHP_EOL;
+    //const NAMES = ["foo", "bar"];
+    //const COMPOSIBLE = "COMPOSIBLE". NAMES[0];
+    //echo COMPOSIBLE . PHP_EOL;
 
     echo __FILE__.PHP_EOL;
     echo __DIR__.PHP_EOL;
     echo __LINE__.PHP_EOL;
+
+    // condition scope
+    $test = 10;
+    if ($test == 10) {
+        $test_d = 20; // variable hoisting
+    }
+    echo $test_d.PHP_EOL;
+
+    // ticks
+    declare(ticks=1) { // same for encoding=utf-8 and strict_types
+        function tick_handler() {
+            echo "tick_handler() called".PHP_EOL;
+        }
+
+        register_tick_function(tick_handler);
+
+        if (true) {
+            $a = 10;
+        }
+        $b = 20;
+    }
 ?>
