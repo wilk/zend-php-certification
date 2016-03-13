@@ -56,3 +56,81 @@
     $foo = "foo";
     if (function_exists($foo)) echo "$foo is callable".PHP_EOL;
 
+    // closures
+    $sorter = function ($a, $b) {
+        return $a < $b;
+    };
+
+    $iterater = function ($list, $sorterFn) {
+        $sortedList = [];
+        for ($i = 0; $i < count($list) - 1; $i++) {
+            $first = $list[$i];
+            $last = $list[$i+1];
+            $sortedList[] = $sorterFn($first, $last) ? $first : $last;
+        }
+
+        return $sortedList;
+    };
+
+    $starting = [6,5,4,3,2,1,0];
+    print_r($starting);
+    $result = $iterater($starting, $sorter);
+    print_r($result);
+
+    // closures scope
+    $message = "hello";
+    $closure = function () {
+        echo $message . PHP_EOL; // php notice: undefined variable
+    };
+    $closure();
+
+    $closureUse = function () use ($message) {
+        echo $message . PHP_EOL;
+    };
+    $closureUse();
+    $message = "changed to world!";
+    $closureUse(); // it will print "hello" not "changed to world!"
+
+    $closureRef = function () use (&$message) {
+        echo $message . PHP_EOL;
+    };
+    $closureRef();
+    $message = "hello world";
+    $closureRef();
+
+    // inherited vars
+    $granClosure = function () use ($message) {
+        $closure = function () {
+            echo $message . PHP_EOL; // undefined var
+
+            $childClosure = function () use ($message) { // undefined var
+                echo $message . PHP_EOL;
+            };
+
+            $childClosure();
+        };
+
+        $closure();
+    };
+
+    $granClosure();
+
+    // inside a function and...
+    function fn() {
+        function lol() {
+            echo "lolled".PHP_EOL;
+        }
+    }
+
+    fn();
+    lol();
+
+    // inside a closure
+    $fn = function () {
+        $lol = function () {
+            echo "lolled".PHP_EOL;
+        };
+    };
+
+    $fn();
+    //$lol(); // fatal
