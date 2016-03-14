@@ -54,3 +54,27 @@ $foo->override();
 $foo->cannotOverride();
 $bar->override();
 $bar->cannotOverride();
+
+// abstract class
+abstract class ANinja {
+    abstract public function kill(Person $someone);
+    abstract protected function isOk();
+
+    public function knowledge() {
+        echo "this is a common method, already implemented!".PHP_EOL;
+    }
+}
+
+class Ninja extends ANinja {
+    public function kill(Person $someone) {
+        echo "killing $someone->name".PHP_EOL;
+        $this->isOk();
+    }
+
+    protected function isOk() {
+        echo "I'm ok!".PHP_EOL;
+    }
+}
+
+$ninja = new Ninja;
+$ninja->kill(new Person("foo", 30));

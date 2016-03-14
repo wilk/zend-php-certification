@@ -67,3 +67,43 @@ class Full {
 
 $full = new Full;
 unset($full);
+
+// visibility
+class Visibility {
+    public $public = "public";
+    protected $protected = "protected";
+    private $private = "private";
+
+    public function pub() {
+        echo $this->public, PHP_EOL, $this->protected, PHP_EOL, $this->private, PHP_EOL;
+    }
+
+    protected function pro() {
+        echo $this->public, PHP_EOL, $this->protected, PHP_EOL, $this->private, PHP_EOL;
+    }
+
+    private function pri() {
+        echo $this->public, PHP_EOL, $this->protected, PHP_EOL, $this->private, PHP_EOL;
+    }
+}
+
+class SubVisibility extends Visibility {
+    public function callPro() {
+        $this->pub();
+        $this->pro();
+        //$this->pri(); // fatal
+    }
+}
+
+$foo = new Visibility;
+$bar = new SubVisibility;
+
+echo $foo->public.PHP_EOL;
+//echo $foo->protected.PHP_EOL; // fatal
+//echo $foo->private.PHP_EOL; // fatal
+
+$foo->pub();
+//$foo->pro(); // fatal
+//$foo->pri(); // fatal
+
+$bar->callPro();
