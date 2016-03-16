@@ -107,3 +107,19 @@ $foo->pub();
 //$foo->pri(); // fatal
 
 $bar->callPro();
+
+// iterators
+class IterableClass {
+    public $name = "foo";
+    public $surname = "bar";
+    public static $age = 10;
+
+    public function test() {
+        echo "Hey dude!".PHP_EOL;
+    }
+}
+
+$ic = new IterableClass();
+foreach ($ic as $prop => $value) {
+    echo "$prop $value".PHP_EOL;
+}
