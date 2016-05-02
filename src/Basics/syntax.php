@@ -1,9 +1,18 @@
+<? echo "short tags are discouraged because it works only with --enable-short-tags flag"; ?>
+
+<!-- this is not true! -->
+<!--?= echo "while this is always available with PHP greater-equal than 5.4.0"; ?-->
+
 <?php echo "test"?>
+
+<% echo "ASP tags are discouraged because they work only with asp-tags flag enabled"; %>
 
 <?php # echo "test"?>
 
 <?php if (true): ?>
     <div>hello world</div>
+<?php else: ?>
+    <div>hello monday</div>
 <?php endif; ?>
 
 <p>this is an HTML test: start</p>
