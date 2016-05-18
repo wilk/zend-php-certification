@@ -46,3 +46,27 @@
 
     $result = recursion(10);
     echo $result.PHP_EOL;
+
+    function optArgs($first, $second) {
+        echo "test $first $second".PHP_EOL;
+    }
+
+    try {
+        optArgs(10);
+        echo "done".PHP_EOL;
+    }
+    catch (Exception $err) {
+        echo $err;
+    }
+
+    function scope() {
+        $foo = 10;
+        
+        function inner() {
+            echo "foo -> $foo".PHP_EOL;
+        }
+        
+        inner();
+    }
+
+    scope();
