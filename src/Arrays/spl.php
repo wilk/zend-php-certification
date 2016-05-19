@@ -13,3 +13,10 @@ foreach ($obj as $key => $value) echo "$key ... $value".PHP_EOL;
 $obj->sort();
 
 foreach ($obj as $key => $value) echo "$key ... $value".PHP_EOL;
+
+/*
+Flag Effect
+
+ArrayObject::STD_PROP_LIST  Properties of the object have their normal functionality when accessed as list (var_dump, foreach, etc.).
+ArrayObject::ARRAY_AS_PROPS Entries can be accessed as properties (read and write).
+*/
