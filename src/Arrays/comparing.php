@@ -115,3 +115,12 @@ $result = array_uintersect($first, $second, function ($a, $b) {
     else return 0;
 });
 var_dump($result); // [20, 30]
+
+/*
+Function            Used for
+array_diff          Computes the difference of arrays
+array_diff_assoc    Computes the difference of arrays with additional index check
+array_udiff         Computes the difference of arrays by using a callback function for data comparison
+array_udiff_assoc   Computes the difference of arrays with additional index check, compares data by a callback function
+array_udiff_uassoc  Computes the difference of arrays with additional index check, compares data and indexes by a callback function
+*/
