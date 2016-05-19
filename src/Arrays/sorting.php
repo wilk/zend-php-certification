@@ -27,3 +27,35 @@ $arr = [30, 20, 10];
 foreach ($arr as $item) echo $item.PHP_EOL;
 sort($arr);
 foreach ($arr as $item) echo $item.PHP_EOL;
+rsort($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
+
+$arr = ["dollar" => 10, "sterlin" => 20, "euro" => 5];
+foreach ($arr as $key => $value) echo "$key: $value".PHP_EOL;
+asort($arr);
+foreach ($arr as $key => $value) echo "$key: $value".PHP_EOL;
+arsort($arr);
+foreach ($arr as $key => $value) echo "$key: $value".PHP_EOL;
+ksort($arr);
+foreach ($arr as $key => $value) echo "$key: $value".PHP_EOL;
+krsort($arr);
+foreach ($arr as $key => $value) echo "$key: $value".PHP_EOL;
+
+$arr = [10, 20, 30];
+foreach ($arr as $item) echo $item.PHP_EOL;
+shuffle($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
+shuffle($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
+shuffle($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
+shuffle($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
+
+// natural sorting
+$arr = ["arr0", "arr1", "arr10", "arr11", "arr2", "arr20", "arr22", "arr33"];
+foreach ($arr as $item) echo $item.PHP_EOL;
+shuffle($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
+natsort($arr);
+foreach ($arr as $item) echo $item.PHP_EOL;
