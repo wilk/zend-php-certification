@@ -10,7 +10,7 @@ class Person {
     }
 
     public function introduce() {
-        echo "hello my name is $this->name and I'm $this->age".PHP_EOL;
+        echo "hello my name is $this->name and I'm $this->age and this is ".__CLASS__.PHP_EOL;
     }
 
     public function override() {
