@@ -164,3 +164,39 @@ class CProp {
 $prop = new CProp();
 echo $prop->var .PHP_EOL;
 echo CProp::$sta.PHP_EOL;
+
+// Inheritance and Precedence
+// CLASS MEMBERS > TRAIT METHODS > INHERITED METHODS
+
+trait T {
+    public function say_hello()
+    {
+        echo "hello from trait " . __TRAIT__ . PHP_EOL;
+    }
+
+    public function introduce()
+    {
+        echo "introducing from trait " . __TRAIT__ . PHP_EOL;
+    }
+}
+
+class A {
+    // this method will be overridden from trait T because it's inherited
+    public function say_hello() {
+        echo "hello from class " . __CLASS__ . PHP_EOL;
+    }
+}
+
+class B extends A {
+    use T;
+
+    // this method won't be overridden from trait T because it's defined in this class
+    public function introduce() 
+    {
+        echo "introducing from class " . __CLASS__ . PHP_EOL;
+    }
+}
+
+$cls = new B();
+$cls->say_hello(); // hello from trait T
+$cls->introduce(); // introducing from class B
