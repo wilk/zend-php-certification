@@ -67,3 +67,11 @@ filter_var($output, FILTER_SANITIZE_STRING); // the best way to sanitize output
 htmlspecialchars();
 strip_tags();
 htmlentities();
+
+// File uploads
+// uploaded file must be validated
+// they are uploaded in a temporary directory
+is_uploaded_file("filename"); // make sure that you're referencing to an uploaded file
+move_uploaded_file("filename", "dest"); // move the uploaded file into "dest" directory
+finfo_file($file, "application/pdf"); // get the MIME type of the file, so don't trust the MIME type provided by the user
+getimagesize("image"); // check if the uploaded file is actually an image. it fails if it's not
