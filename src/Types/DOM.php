@@ -1,11 +1,11 @@
 <?php
-$dom = new DOMDocument();
+$dom = new DOMDocument("UTF-8", "1.0");
 $dom->load("./data/test.xml");
-$result = $dom->getElementsByTagName("certification");
-$certification = $result->item(0);
-$certificationName = $certification->firstChild;
+$xpath = new DOMXPath($dom);
+$certification = $xpath->query("//certification");
+var_dump($certification);
 
-echo "certification name: {$certificationName->nodeValue}".PHP_EOL;
+//echo "certification name: {$certificationName->nodeValue}".PHP_EOL;
 
 $units = $dom->getElementsByTagName("unit");
 foreach ($units as $unit) {
