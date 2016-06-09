@@ -89,3 +89,25 @@ cloneNode       Clones a node and optionally all of its descendent nodes
 setAttributeNS  Adds a new attribute
 */
 
+// SimpleXML
+// tree parser that loads the entire document into memory so is not suitable for large documents
+// all objects are istances of SimpleXMLElement class and elements are properties of it, while attributes can be accessed as associative arrays
+$xml = simple_xml_load_string($xmlString);
+$xml = simple_xml_load_file($xmlFile);
+$xml = new SimpleXMLElement($xmlString);
+$children = $xml->children();
+
+// SimpleXML methods
+/**
+Function                        Action
+SimpleXMLElement::construct()   Creates a new SimpleXMLElement object
+SimpleXMLElement::attributes()  Identifies an elements attributes
+SimpleXMLElement::getName()     Retrieves an elements name
+SimpleXMLElement::children()    Returns the children of the given node
+SimpleXMLElement::count()       Returns how many children a node has
+SimpleXMLElement::asXML()       Returns the element as a well-formed XML string
+SimpleXMLElement::xpath()       Runs an xpath query on the current node
+*/
+
+// simple_xml_import_dom import DOM Node into SimpleXML
+// dom_import_simplexml do the same for DOM
